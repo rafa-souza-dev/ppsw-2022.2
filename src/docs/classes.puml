@@ -1,0 +1,18 @@
+@startuml JabberPoint
+
+interface CommandLineRunner {
+  void run(String... args)
+}
+
+class JabberPointApplication {
+  #{static} String IOERR
+  #{static} String JABERR
+  #{static} String JABVERSION
+
+  +{static} void main(String[] argv)
+  + void run(String... args)
+}
+
+class JabberPointApplication implements CommandLineRunner
+
+@enduml
