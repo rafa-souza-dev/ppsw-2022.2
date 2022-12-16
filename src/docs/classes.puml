@@ -15,4 +15,129 @@ class JabberPointApplication {
 
 class JabberPointApplication implements CommandLineRunner
 
+class AboutBox {
+  +{static} void show()
+}
+
+abstract class Accessor {
+  + {static} String DEMO_NAME
+  + {static} String DEFAULT_EXTENSION
+  + {static} Acessor getDemoAccessor()
+  + Acessor()
+  + {abstract} void loadFile()
+  + {abstract} void saveFile()
+}
+
+class Slide {
+  + {static} int WIDTH
+  + {static} int HEIGHT
+  # TextItem title
+  # Vector<SlideItem> items
+  + Slide()
+  + void append()
+  + String getTitle()
+  + void setTitle()
+  + SlideItem getSlideItem()
+  + Vector<SlideItem> getSlideItems()
+  + int getSize()
+  + void draw()
+  - float getScale()
+}
+
+abstract class SlideItem {
+  - int level
+  + SlideItem()
+  + int getLevel()
+  + {abstract} Rectangle getBoundingBox()
+  + {abstract} void draw()
+}
+
+abstract class JComponent
+abstract class JFrame
+
+class SlideViewerComponent {
+  - {static} long serialVersionUID
+  - {static} Color BGCOLOR
+  - {static} Color COLOR
+  - {static} String FONTNAME
+  - {static} int FONTSTYLE
+  - {static} int FONTHEIGHT
+  - {static} int XPOS
+  - {static} int YPOS
+  - Slide slide
+  - Font labelFont
+  - Presentation presentation
+  - JFrame frame
+
+  + SlideViewerComponent()
+  + Dimension getPreferredSize()
+  + void update()
+  + void paintComponent()
+}
+
+class SlideViewerComponent extends JComponent
+
+class SlideViewerFrame {
+  - {static} long serialVersionUID
+  - {static} String JABTITLE
+  + {static} int WIDTH
+  + {static} int HEIGHT
+  + SlideViewerFrame()
+  + void setupWindow()
+}
+
+class SlideViewerFrame extends JFrame
+
+class Style {
+  - {static} Style[] styles
+  - {static} String FONTNAME
+  int indent
+  Color color
+  Font font
+  int fontSize
+  int leading
+
+  + {static} void createStyles()
+  + {static} Style getStyle()
+  + Style()
+  + String toString()
+  + Font getFont()
+}
+
+class TextItem {
+  - String text
+  - {static} String EMPTYTEXT
+  + TextItem()
+  + String getText()
+  + AttributedString getAttributedString()
+  + Rectangle getBoundingBox()
+  + void draw()
+  - List<TextLayout> getLayouts()
+  + String toString()
+}
+
+class TextItem extends SlideItem
+
+class XMLAccessor {
+  # {static} String DEFAULT_API_TO_USE
+  # {static} String SHOWTITLE
+  # {static} String SLIDETITLE
+  # {static} String SLIDE
+  # {static} String ITEM
+  # {static} String LEVEL
+  # {static} String KIND
+  # {static} String TEXT
+  # {static} String IMAGE
+  # {static} String PCE
+  # {static} String UNKNOWNTYPE
+  # {static} String NFE
+
+  - String getTitle()
+  + void loadFile()
+  # void loadSlideItem()
+  + void saveFile()
+}
+
+class XMLAccessor extends Accessor
+
 @enduml
