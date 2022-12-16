@@ -140,4 +140,88 @@ class XMLAccessor {
 
 class XMLAccessor extends Accessor
 
+class BitmapItem {
+  - BufferedImage bufferedImage
+  - String imageName
+  # {static} String FILE
+  # {static} String NOTFOUND
+
+  + BitmapItem()
+  + String getName()
+  + Rectangle getBoundingBox()
+  + void draw()
+  + String toString()
+}
+
+class BitmapItem extends SlideItem
+
+class DemoPresentation {
+  + void loadFile()
+  + void saveFile()
+}
+
+class DemoPresentation extends Accessor
+
+abstract class KeyAdapter
+
+class KeyController {
+  - Presentation presentation
+  + KeyController()
+  + void keyPressed()
+}
+
+class KeyController extends KeyAdapter
+
+class MenuBar
+
+class MenuController {
+  - {static} long serialVersionUID
+  - Frame parent
+  - Presentation presentation
+  # {static} String ABOUT
+  # {static} String FILE
+  # {static} String EXIT
+  # {static} String GOTO
+  # {static} String HELP
+  # {static} String NEW
+  # {static} String NEXT
+  # {static} String OPEN
+  # {static} String PAGENR
+  # {static} String PREV
+  # {static} String SAVE
+  # {static} String VIEW
+  # {static} String TESTFILE
+  # {static} String SAVEFILE
+  # {static} String IOEX
+  # {static} String LOADERR
+  # {static} String SAVEERR
+
+  + MenuController()
+  + MenuItem mkMenuItem()
+}
+
+class MenuController extends MenuBar
+
+class Presentation {
+  - String title
+  - ArrayList<Slide> showList
+  - SlideViewerComponent slideViewComponent
+  - int currentSlideNumber
+
+  + Presentation()
+  + int getSize()
+  + String getTitle()
+  + void setTitle()
+  + void setShowView()
+  + int getSlideNumber()
+  + void setSlideNumber()
+  + void prevSlide()
+  + void nextSlide()
+  void clear()
+  + void append()
+  + Slide getSlide()
+  + Slide getCurrentSlide()
+  + void exit()
+}
+
 @enduml
