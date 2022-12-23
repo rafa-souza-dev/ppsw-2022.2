@@ -1,7 +1,7 @@
 @startuml JabberPoint
 
 interface CommandLineRunner {
-  void run(String... args)
+  void run()
 }
 
 class JabberPointApplication {
@@ -9,8 +9,8 @@ class JabberPointApplication {
   #{static} String JABERR
   #{static} String JABVERSION
 
-  +{static} void main(String[] argv)
-  + void run(String... args)
+  +{static} void main()
+  + void run()
 }
 
 class JabberPointApplication implements CommandLineRunner
@@ -223,5 +223,21 @@ class Presentation {
   + Slide getCurrentSlide()
   + void exit()
 }
+
+' Relações
+Slide "1" *-- "0..*" SlideItem : contains
+Slide "1" *-- "0..*" SlideViewerComponent : contains
+SlideViewerComponent "1" *-- "1" Presentation : contains
+Presentation "1" *-- "1..*" Slide : contains
+Presentation "1" *-- "1" DemoPresentation : contains
+KeyController "1" *-- "1" Presentation : contains
+MenuController "1" *-- "1" Presentation : contains
+MenuController o-- AboutBox : aggregation
+MenuController *-- Accessor : contains
+JabberPointApplication o-- Accessor : aggregation
+Slide o-- Style : aggregation
+SlideItem o-- Style : aggregation
+SlideViewerComponent o-- Style : aggregation
+Presentation o-- Style : aggregation
 
 @enduml
