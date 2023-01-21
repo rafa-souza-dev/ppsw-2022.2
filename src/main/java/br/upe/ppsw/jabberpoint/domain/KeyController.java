@@ -1,4 +1,4 @@
-package br.upe.ppsw.jabberpoint.apresentacao;
+package br.upe.ppsw.jabberpoint.domain;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;

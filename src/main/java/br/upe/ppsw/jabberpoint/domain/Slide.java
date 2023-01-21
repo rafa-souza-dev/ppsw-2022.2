@@ -1,4 +1,4 @@
-package br.upe.ppsw.jabberpoint.apresentacao;
+package br.upe.ppsw.jabberpoint.domain;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;

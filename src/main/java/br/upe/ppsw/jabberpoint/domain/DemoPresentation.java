@@ -1,9 +1,9 @@
-package br.upe.ppsw.jabberpoint.apresentacao;
+package br.upe.ppsw.jabberpoint.domain;
 
 import java.io.FileNotFoundException;
 import org.springframework.util.ResourceUtils;
 
-import br.upe.ppsw.jabberpoint.apresentacao.interfaces.LoadAcessor;
+import br.upe.ppsw.jabberpoint.interfaces.LoadAcessor;
 
 public class DemoPresentation implements LoadAcessor {
 
