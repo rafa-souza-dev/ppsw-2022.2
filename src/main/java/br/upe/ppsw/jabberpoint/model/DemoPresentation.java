@@ -1,4 +1,4 @@
-package br.upe.ppsw.jabberpoint.domain;
+package br.upe.ppsw.jabberpoint.model;
 
 import java.io.FileNotFoundException;
 import org.springframework.util.ResourceUtils;

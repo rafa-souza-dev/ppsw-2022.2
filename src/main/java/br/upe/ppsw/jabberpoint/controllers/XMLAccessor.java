@@ -1,4 +1,4 @@
-package br.upe.ppsw.jabberpoint.domain;
+package br.upe.ppsw.jabberpoint.controllers;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -16,6 +16,11 @@ import org.xml.sax.SAXException;
 
 import br.upe.ppsw.jabberpoint.interfaces.LoadAcessor;
 import br.upe.ppsw.jabberpoint.interfaces.SaveAcessor;
+import br.upe.ppsw.jabberpoint.model.BitmapItem;
+import br.upe.ppsw.jabberpoint.model.Presentation;
+import br.upe.ppsw.jabberpoint.model.Slide;
+import br.upe.ppsw.jabberpoint.model.SlideItem;
+import br.upe.ppsw.jabberpoint.model.TextItem;
 
 public class XMLAccessor implements LoadAcessor, SaveAcessor {
 

@@ -1,4 +1,4 @@
-package br.upe.ppsw.jabberpoint.domain;
+package br.upe.ppsw.jabberpoint.view;
 
 import java.awt.Frame;
 import javax.swing.JOptionPane;
