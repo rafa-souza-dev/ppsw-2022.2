@@ -14,7 +14,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import br.upe.ppsw.jabberpoint.interfaces.LoadAcessor;
+import br.upe.ppsw.jabberpoint.interfaces.BasicAcessor;
 import br.upe.ppsw.jabberpoint.interfaces.SaveAcessor;
 import br.upe.ppsw.jabberpoint.model.BitmapItem;
 import br.upe.ppsw.jabberpoint.model.Presentation;
@@ -22,7 +22,7 @@ import br.upe.ppsw.jabberpoint.model.Slide;
 import br.upe.ppsw.jabberpoint.model.SlideItem;
 import br.upe.ppsw.jabberpoint.model.TextItem;
 
-public class XMLAccessor implements LoadAcessor, SaveAcessor {
+public class XMLAccessor implements BasicAcessor, SaveAcessor {
 
   protected static final String DEFAULT_API_TO_USE = "dom";
 

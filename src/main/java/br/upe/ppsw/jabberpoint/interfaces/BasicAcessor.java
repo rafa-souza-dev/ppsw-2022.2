@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import br.upe.ppsw.jabberpoint.model.Presentation;
 
-public interface LoadAcessor extends Acessor {
+public interface BasicAcessor {
+  String DEFAULT_EXTENSION = ".xml";
   void loadFile(Presentation presentation, String fileName) throws IOException;
 }
