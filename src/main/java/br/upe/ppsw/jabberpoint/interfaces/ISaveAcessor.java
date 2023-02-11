@@ -4,6 +4,6 @@ import java.io.IOException;
 
 import br.upe.ppsw.jabberpoint.model.Presentation;
 
-public interface SaveAcessor {
+public interface ISaveAcessor {
   void saveFile(Presentation presentation, String fileName) throws IOException;
 }
