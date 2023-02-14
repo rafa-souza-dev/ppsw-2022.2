@@ -7,8 +7,6 @@ import br.upe.ppsw.jabberpoint.interfaces.IBasicAcessor;
 
 public class DemoPresentation implements IBasicAcessor {
 
-  public static final String DEMO_NAME = "Apresentação de Demonstração";
-
   public void loadFile(Presentation presentation, String unusedFilename)
       throws FileNotFoundException {
 
