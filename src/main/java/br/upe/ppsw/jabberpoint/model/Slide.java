@@ -5,6 +5,8 @@ import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
 import java.util.Vector;
 
+import br.upe.ppsw.jabberpoint.view.SlideItemDesigner;
+
 public class Slide {
 
   public final static int WIDTH = 1200;
@@ -51,8 +53,11 @@ public class Slide {
     int y = area.y;
 
     SlideItem slideItem = this.title;
+    SlideItemDesigner slideItemDesigner = new SlideItemDesigner(slideItem);
+
     Style style = Style.getStyle(slideItem.getLevel());
-    slideItem.draw(area.x, y, scale, g, style, view);
+
+    slideItemDesigner.execute(area.x, y, scale, g, style, view);
 
     y += slideItem.getBoundingBox(g, view, scale, style).height;
 
@@ -60,7 +65,7 @@ public class Slide {
       slideItem = (SlideItem) getSlideItems().elementAt(number);
 
       style = Style.getStyle(slideItem.getLevel());
-      slideItem.draw(area.x, y, scale, g, style, view);
+      slideItemDesigner.execute(area.x, y, scale, g, style, view);
 
       y += slideItem.getBoundingBox(g, view, scale, style).height;
     }
