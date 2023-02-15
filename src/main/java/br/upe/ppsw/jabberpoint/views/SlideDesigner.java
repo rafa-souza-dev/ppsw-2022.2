@@ -1,12 +1,12 @@
-package br.upe.ppsw.jabberpoint.view;
+package br.upe.ppsw.jabberpoint.views;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
 
-import br.upe.ppsw.jabberpoint.model.Slide;
-import br.upe.ppsw.jabberpoint.model.SlideItem;
-import br.upe.ppsw.jabberpoint.model.Style;
+import br.upe.ppsw.jabberpoint.models.Slide;
+import br.upe.ppsw.jabberpoint.models.SlideItem;
+import br.upe.ppsw.jabberpoint.models.Style;
 
 public class SlideDesigner {
     private Slide slide;

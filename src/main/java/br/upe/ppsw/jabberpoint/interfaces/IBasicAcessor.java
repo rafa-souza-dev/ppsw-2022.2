@@ -2,7 +2,7 @@ package br.upe.ppsw.jabberpoint.interfaces;
 
 import java.io.IOException;
 
-import br.upe.ppsw.jabberpoint.model.Presentation;
+import br.upe.ppsw.jabberpoint.models.Presentation;
 
 public interface IBasicAcessor {
   String DEFAULT_EXTENSION = ".xml";

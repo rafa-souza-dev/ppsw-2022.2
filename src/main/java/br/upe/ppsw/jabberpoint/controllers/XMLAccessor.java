@@ -16,11 +16,11 @@ import org.xml.sax.SAXException;
 
 import br.upe.ppsw.jabberpoint.interfaces.IBasicAcessor;
 import br.upe.ppsw.jabberpoint.interfaces.ISaveAcessor;
-import br.upe.ppsw.jabberpoint.model.BitmapItem;
-import br.upe.ppsw.jabberpoint.model.Presentation;
-import br.upe.ppsw.jabberpoint.model.Slide;
-import br.upe.ppsw.jabberpoint.model.SlideItem;
-import br.upe.ppsw.jabberpoint.model.TextItem;
+import br.upe.ppsw.jabberpoint.models.BitmapItem;
+import br.upe.ppsw.jabberpoint.models.Presentation;
+import br.upe.ppsw.jabberpoint.models.Slide;
+import br.upe.ppsw.jabberpoint.models.SlideItem;
+import br.upe.ppsw.jabberpoint.models.TextItem;
 
 public class XMLAccessor implements IBasicAcessor, ISaveAcessor {
 

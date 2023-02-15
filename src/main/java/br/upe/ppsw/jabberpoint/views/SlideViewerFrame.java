@@ -1,4 +1,4 @@
-package br.upe.ppsw.jabberpoint.view;
+package br.upe.ppsw.jabberpoint.views;
 
 import java.awt.Dimension;
 import java.awt.event.WindowAdapter;
@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 
 import br.upe.ppsw.jabberpoint.controllers.KeyController;
 import br.upe.ppsw.jabberpoint.controllers.MenuController;
-import br.upe.ppsw.jabberpoint.model.Presentation;
+import br.upe.ppsw.jabberpoint.models.Presentation;
 
 public class SlideViewerFrame extends JFrame {
 

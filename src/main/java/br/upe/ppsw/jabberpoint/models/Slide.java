@@ -1,4 +1,4 @@
-package br.upe.ppsw.jabberpoint.model;
+package br.upe.ppsw.jabberpoint.models;
 
 import java.util.Vector;
 
