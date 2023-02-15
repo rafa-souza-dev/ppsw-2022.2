@@ -45,4 +45,16 @@ public class Style {
   public Font getFont(float scale) {
     return font.deriveFont(fontSize * scale);
   }
+
+  public int getIndent() {
+    return this.indent;
+  }
+
+  public int getLeading() {
+    return this.leading;
+  }
+
+  public Color getColor() {
+    return this.color;
+  }
 }

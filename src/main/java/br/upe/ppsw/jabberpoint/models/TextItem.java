@@ -2,7 +2,6 @@ package br.upe.ppsw.jabberpoint.models;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.font.FontRenderContext;
 import java.awt.font.LineBreakMeasurer;
@@ -66,30 +65,7 @@ public class TextItem extends SlideItem {
     return new Rectangle((int) (myStyle.indent * scale), 0, xsize, ysize);
   }
 
-  public void draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver o) {
-    if (text == null || text.length() == 0) {
-      return;
-    }
-
-    List<TextLayout> layouts = getLayouts(g, myStyle, scale);
-    Point pen = new Point(x + (int) (myStyle.indent * scale), y + (int) (myStyle.leading * scale));
-
-    Graphics2D g2d = (Graphics2D) g;
-    g2d.setColor(myStyle.color);
-
-    Iterator<TextLayout> it = layouts.iterator();
-
-    while (it.hasNext()) {
-      TextLayout layout = it.next();
-
-      pen.y += layout.getAscent();
-      layout.draw(g2d, pen.x, pen.y);
-
-      pen.y += layout.getDescent();
-    }
-  }
-
-  private List<TextLayout> getLayouts(Graphics g, Style s, float scale) {
+  public List<TextLayout> getLayouts(Graphics g, Style s, float scale) {
     List<TextLayout> layouts = new ArrayList<TextLayout>();
 
     AttributedString attrStr = getAttributedString(s, scale);
