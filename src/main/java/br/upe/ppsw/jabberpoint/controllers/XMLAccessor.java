@@ -128,7 +128,7 @@ public class XMLAccessor implements IBasicAcessor, ISaveAcessor {
       Slide slide = presentation.getSlide(slideNumber);
 
       out.println("<slide>");
-      out.println("<title>" + slide.getTitle() + "</title>");
+      out.println("<title>" + slide.getTitleText() + "</title>");
 
       Vector<SlideItem> slideItems = slide.getSlideItems();
       for (int itemNumber = 0; itemNumber < slideItems.size(); itemNumber++) {
