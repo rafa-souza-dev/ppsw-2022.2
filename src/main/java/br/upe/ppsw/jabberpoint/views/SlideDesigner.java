@@ -21,16 +21,23 @@ public class SlideDesigner {
         int y = area.y;
     
         SlideItem slideItem = this.slide.getTitle();
+
+        SlideItemDesigner slideItemDesigner = new SlideItemDesigner(slideItem);
+
         Style style = Style.getStyle(slideItem.getLevel());
-        slideItem.draw(area.x, y, scale, g, style, view);
+
+        slideItemDesigner.execute(area.x, y, scale, g, style, view);
     
         y += slideItem.getBoundingBox(g, view, scale, style).height;
     
         for (int number = 0; number < this.slide.getSize(); number++) {
           slideItem = (SlideItem) this.slide.getSlideItems().elementAt(number);
-    
+            
+          slideItemDesigner.setSlideItem(slideItem);
+
           style = Style.getStyle(slideItem.getLevel());
-          slideItem.draw(area.x, y, scale, g, style, view);
+
+          slideItemDesigner.execute(area.x, y, scale, g, style, view);
     
           y += slideItem.getBoundingBox(g, view, scale, style).height;
         }
