@@ -29,7 +29,8 @@ public class BoundingBoxGenerator {
         }
 
         if (slideItem instanceof TextItem) {
-            List<TextLayout> layouts = ((TextItem) this.slideItem).getLayouts(g, style, scale);
+            TextItemLayoutsGenerator textItemLayoutsGenerator = new TextItemLayoutsGenerator((TextItem) slideItem);
+            List<TextLayout> layouts = textItemLayoutsGenerator.handler(g, style, scale);
 
             int xsize = 0, ysize = (int) (style.getLeading() * scale);
 
