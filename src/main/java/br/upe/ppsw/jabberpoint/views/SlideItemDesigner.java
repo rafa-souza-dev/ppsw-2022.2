@@ -31,12 +31,9 @@ public class SlideItemDesigner {
         
             g.drawImage(((BitmapItem) this.slideItem).getBufferedImage(), width, height, (int) (((BitmapItem) this.slideItem).getBufferedImage().getWidth(observer) * scale),
                 (int) (((BitmapItem) this.slideItem).getBufferedImage().getHeight(observer) * scale), observer);        
-
-            System.out.println(this.slideItem.getLevel());
         }
 
         if (this.slideItem instanceof TextItem) {
-            System.out.println(this.slideItem.getLevel());
             if (((TextItem) this.slideItem).getText() == null || 
             ((TextItem) this.slideItem).getText().length() == 0) return;
           

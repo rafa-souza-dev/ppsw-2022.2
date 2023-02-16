@@ -23,23 +23,25 @@ public class SlideDesigner {
         SlideItem slideItem = this.slide.getTitle();
 
         SlideItemDesigner slideItemDesigner = new SlideItemDesigner(slideItem);
+        BoundingBoxGenerator boundingBoxGenerator = new BoundingBoxGenerator(slideItem);
 
         Style style = Style.getStyle(slideItem.getLevel());
 
         slideItemDesigner.execute(area.x, y, scale, g, style, view);
     
-        y += slideItem.getBoundingBox(g, view, scale, style).height;
+        y += boundingBoxGenerator.handler(g, view, scale, style).height;
     
         for (int number = 0; number < this.slide.getSize(); number++) {
           slideItem = (SlideItem) this.slide.getSlideItems().elementAt(number);
             
           slideItemDesigner.setSlideItem(slideItem);
+          boundingBoxGenerator.setSlideItem(slideItem);
 
           style = Style.getStyle(slideItem.getLevel());
 
           slideItemDesigner.execute(area.x, y, scale, g, style, view);
     
-          y += slideItem.getBoundingBox(g, view, scale, style).height;
+          y += boundingBoxGenerator.handler(g, view, scale, style).height;
         }
     }
 
