@@ -2,7 +2,6 @@ package br.upe.ppsw.jabberpoint.views;
 
 import br.upe.ppsw.jabberpoint.models.BitmapItem;
 import br.upe.ppsw.jabberpoint.models.SlideItem;
-import br.upe.ppsw.jabberpoint.models.Style;
 import br.upe.ppsw.jabberpoint.models.TextItem;
 
 import java.awt.Point;
@@ -26,8 +25,8 @@ public class SlideItemDesigner {
         ImageObserver observer
     ) {
         if (this.slideItem instanceof BitmapItem) {
-            int width = x + (int) (style.getIndent() * scale);
-            int height = y + (int) (style.getLeading() * scale);
+            int width = x + (int) (style.indent * scale);
+            int height = y + (int) (style.leading * scale);
         
             g.drawImage(((BitmapItem) this.slideItem).getBufferedImage(), width, height, (int) (((BitmapItem) this.slideItem).getBufferedImage().getWidth(observer) * scale),
                 (int) (((BitmapItem) this.slideItem).getBufferedImage().getHeight(observer) * scale), observer);        
@@ -39,10 +38,10 @@ public class SlideItemDesigner {
           
             TextItemLayoutsGenerator textItemLayoutsGenerator = new TextItemLayoutsGenerator((TextItem) slideItem);
             List<TextLayout> layouts = textItemLayoutsGenerator.handle(g, style, scale);
-            Point pen = new Point(x + (int) (style.getIndent() * scale), y + (int) (style.getLeading() * scale));
+            Point pen = new Point(x + (int) (style.indent * scale), y + (int) (style.leading * scale));
         
             Graphics2D g2d = (Graphics2D) g;
-            g2d.setColor(style.getColor());
+            g2d.setColor(style.color);
         
             Iterator<TextLayout> it = layouts.iterator();
           

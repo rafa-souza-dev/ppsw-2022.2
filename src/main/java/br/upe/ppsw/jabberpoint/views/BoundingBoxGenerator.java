@@ -8,7 +8,6 @@ import java.awt.geom.Rectangle2D;
 
 import br.upe.ppsw.jabberpoint.models.BitmapItem;
 import br.upe.ppsw.jabberpoint.models.SlideItem;
-import br.upe.ppsw.jabberpoint.models.Style;
 import br.upe.ppsw.jabberpoint.models.TextItem;
 
 import java.util.List;
@@ -23,16 +22,16 @@ public class BoundingBoxGenerator {
 
     public Rectangle handle(Graphics g, ImageObserver observer, float scale, Style style) {
         if (slideItem instanceof BitmapItem) {
-            return new Rectangle((int) (style.getIndent() * scale), 0,
+            return new Rectangle((int) (style.indent * scale), 0,
             (int) (((BitmapItem) this.slideItem).getBufferedImage().getWidth(observer) * scale),
-            ((int) (style.getLeading() * scale)) + (int) (((BitmapItem) this.slideItem).getBufferedImage().getHeight(observer) * scale));
+            ((int) (style.leading * scale)) + (int) (((BitmapItem) this.slideItem).getBufferedImage().getHeight(observer) * scale));
         }
 
         if (slideItem instanceof TextItem) {
             TextItemLayoutsGenerator textItemLayoutsGenerator = new TextItemLayoutsGenerator((TextItem) slideItem);
             List<TextLayout> layouts = textItemLayoutsGenerator.handle(g, style, scale);
 
-            int xsize = 0, ysize = (int) (style.getLeading() * scale);
+            int xsize = 0, ysize = (int) (style.leading * scale);
 
             Iterator<TextLayout> iterator = layouts.iterator();
 
@@ -50,7 +49,7 @@ public class BoundingBoxGenerator {
                 ysize += layout.getLeading() + layout.getDescent();
             }
 
-            return new Rectangle((int) (style.getIndent() * scale), 0, xsize, ysize);
+            return new Rectangle((int) (style.indent * scale), 0, xsize, ysize);
         }
 
         return new Rectangle();
