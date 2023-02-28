@@ -21,7 +21,7 @@ public class SlideItemDesigner {
     }
 
     public void execute(
-        int x, int y, float scale, Graphics g, Style style,
+        int x, int y, float scale, Graphics g, ComponentsStyler style,
         ImageObserver observer
     ) {
         if (this.slideItem instanceof BitmapItem) {

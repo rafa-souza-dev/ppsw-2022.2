@@ -21,7 +21,7 @@ public class TextItemLayoutsGenerator {
         this.textItem = textItem;
     }
 
-    public List<TextLayout> handle(Graphics g, Style s, float scale) {
+    public List<TextLayout> handle(Graphics g, ComponentsStyler s, float scale) {
         List<TextLayout> layouts = new ArrayList<TextLayout>();
 
         AttributedString attrStr = this.getAttributedString(s, scale);
@@ -40,7 +40,7 @@ public class TextItemLayoutsGenerator {
         return layouts;
     }
 
-    private AttributedString getAttributedString(Style style, float scale) {
+    private AttributedString getAttributedString(ComponentsStyler style, float scale) {
         AttributedString attrStr = new AttributedString(this.textItem.getText());
     
         attrStr.addAttribute(TextAttribute.FONT, style.getFont(scale), 0, this.textItem.getText().length());

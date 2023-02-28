@@ -20,7 +20,7 @@ public class BoundingBoxGenerator {
         this.slideItem = slideItem;
     }
 
-    public Rectangle handle(Graphics g, ImageObserver observer, float scale, Style style) {
+    public Rectangle handle(Graphics g, ImageObserver observer, float scale, ComponentsStyler style) {
         if (slideItem instanceof BitmapItem) {
             return new Rectangle((int) (style.indent * scale), 0,
             (int) (((BitmapItem) this.slideItem).getBufferedImage().getWidth(observer) * scale),

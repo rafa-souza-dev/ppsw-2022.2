@@ -24,7 +24,7 @@ public class SlideDesigner {
         SlideItemDesigner slideItemDesigner = new SlideItemDesigner(slideItem);
         BoundingBoxGenerator boundingBoxGenerator = new BoundingBoxGenerator(slideItem);
 
-        Style style = Style.getStyle(slideItem.getLevel());
+        ComponentsStyler style = ComponentsStyler.getStyle(slideItem.getLevel());
 
         slideItemDesigner.execute(area.x, y, scale, g, style, view);
     
@@ -36,7 +36,7 @@ public class SlideDesigner {
           slideItemDesigner.setSlideItem(slideItem);
           boundingBoxGenerator.setSlideItem(slideItem);
 
-          style = Style.getStyle(slideItem.getLevel());
+          style = ComponentsStyler.getStyle(slideItem.getLevel());
 
           slideItemDesigner.execute(area.x, y, scale, g, style, view);
     
