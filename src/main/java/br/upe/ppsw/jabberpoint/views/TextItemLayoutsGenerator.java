@@ -21,7 +21,7 @@ public class TextItemLayoutsGenerator {
         this.textItem = textItem;
     }
 
-    public List<TextLayout> handler(Graphics g, Style s, float scale) {
+    public List<TextLayout> handle(Graphics g, Style s, float scale) {
         List<TextLayout> layouts = new ArrayList<TextLayout>();
 
         AttributedString attrStr = this.textItem.getAttributedString(s, scale);

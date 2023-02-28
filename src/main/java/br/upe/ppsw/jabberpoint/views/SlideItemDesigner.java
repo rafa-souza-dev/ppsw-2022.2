@@ -38,7 +38,7 @@ public class SlideItemDesigner {
             ((TextItem) this.slideItem).getText().length() == 0) return;
           
             TextItemLayoutsGenerator textItemLayoutsGenerator = new TextItemLayoutsGenerator((TextItem) slideItem);
-            List<TextLayout> layouts = textItemLayoutsGenerator.handler(g, style, scale);
+            List<TextLayout> layouts = textItemLayoutsGenerator.handle(g, style, scale);
             Point pen = new Point(x + (int) (style.getIndent() * scale), y + (int) (style.getLeading() * scale));
         
             Graphics2D g2d = (Graphics2D) g;

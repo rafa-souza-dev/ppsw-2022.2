@@ -29,7 +29,7 @@ public class SlideDesigner {
 
         slideItemDesigner.execute(area.x, y, scale, g, style, view);
     
-        y += boundingBoxGenerator.handler(g, view, scale, style).height;
+        y += boundingBoxGenerator.handle(g, view, scale, style).height;
     
         for (int number = 0; number < this.slide.getSize(); number++) {
           slideItem = (SlideItem) this.slide.getSlideItems().elementAt(number);
@@ -41,7 +41,7 @@ public class SlideDesigner {
 
           slideItemDesigner.execute(area.x, y, scale, g, style, view);
     
-          y += boundingBoxGenerator.handler(g, view, scale, style).height;
+          y += boundingBoxGenerator.handle(g, view, scale, style).height;
         }
     }
 

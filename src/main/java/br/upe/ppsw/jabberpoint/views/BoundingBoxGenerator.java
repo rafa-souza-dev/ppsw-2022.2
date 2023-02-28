@@ -21,7 +21,7 @@ public class BoundingBoxGenerator {
         this.slideItem = slideItem;
     }
 
-    public Rectangle handler(Graphics g, ImageObserver observer, float scale, Style style) {
+    public Rectangle handle(Graphics g, ImageObserver observer, float scale, Style style) {
         if (slideItem instanceof BitmapItem) {
             return new Rectangle((int) (style.getIndent() * scale), 0,
             (int) (((BitmapItem) this.slideItem).getBufferedImage().getWidth(observer) * scale),
@@ -30,7 +30,7 @@ public class BoundingBoxGenerator {
 
         if (slideItem instanceof TextItem) {
             TextItemLayoutsGenerator textItemLayoutsGenerator = new TextItemLayoutsGenerator((TextItem) slideItem);
-            List<TextLayout> layouts = textItemLayoutsGenerator.handler(g, style, scale);
+            List<TextLayout> layouts = textItemLayoutsGenerator.handle(g, style, scale);
 
             int xsize = 0, ysize = (int) (style.getLeading() * scale);
 
