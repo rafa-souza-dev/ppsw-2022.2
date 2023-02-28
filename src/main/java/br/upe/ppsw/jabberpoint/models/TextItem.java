@@ -1,8 +1,5 @@
 package br.upe.ppsw.jabberpoint.models;
 
-import java.awt.font.TextAttribute;
-import java.text.AttributedString;
-
 public class TextItem extends SlideItem {
 
   private String text;
@@ -20,14 +17,6 @@ public class TextItem extends SlideItem {
 
   public String getText() {
     return text == null ? "" : text;
-  }
-
-  public AttributedString getAttributedString(Style style, float scale) {
-    AttributedString attrStr = new AttributedString(getText());
-
-    attrStr.addAttribute(TextAttribute.FONT, style.getFont(scale), 0, text.length());
-
-    return attrStr;
   }
 
   public String toString() {

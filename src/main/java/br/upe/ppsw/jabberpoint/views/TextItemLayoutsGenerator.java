@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.font.FontRenderContext;
 import java.awt.font.LineBreakMeasurer;
+import java.awt.font.TextAttribute;
 
 import java.text.AttributedString;
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class TextItemLayoutsGenerator {
     public List<TextLayout> handle(Graphics g, Style s, float scale) {
         List<TextLayout> layouts = new ArrayList<TextLayout>();
 
-        AttributedString attrStr = this.textItem.getAttributedString(s, scale);
+        AttributedString attrStr = this.getAttributedString(s, scale);
         Graphics2D g2d = (Graphics2D) g;
 
         FontRenderContext frc = g2d.getFontRenderContext();
@@ -38,5 +39,13 @@ public class TextItemLayoutsGenerator {
         }
 
         return layouts;
+    }
+
+    private AttributedString getAttributedString(Style style, float scale) {
+        AttributedString attrStr = new AttributedString(this.textItem.getText());
+    
+        attrStr.addAttribute(TextAttribute.FONT, style.getFont(scale), 0, this.textItem.getText().length());
+    
+        return attrStr;
     }
 }
