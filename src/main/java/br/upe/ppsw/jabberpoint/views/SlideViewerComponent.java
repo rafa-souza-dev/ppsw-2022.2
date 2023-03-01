@@ -8,6 +8,7 @@ import java.awt.Rectangle;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
+import br.upe.ppsw.jabberpoint.controllers.PresentationController;
 import br.upe.ppsw.jabberpoint.models.Presentation;
 import br.upe.ppsw.jabberpoint.models.Slide;
 
@@ -54,13 +55,15 @@ public class SlideViewerComponent extends JComponent {
     g.setColor(BGCOLOR);
     g.fillRect(0, 0, getSize().width, getSize().height);
 
-    if (presentation.getSlideNumber() < 0 || slide == null) {
+    PresentationController presentationController = PresentationController.getInstance();
+
+    if (presentationController.getSlideNumber() < 0 || slide == null) {
       return;
     }
 
     g.setFont(labelFont);
     g.setColor(COLOR);
-    g.drawString("Slide " + (1 + presentation.getSlideNumber()) + " of " + presentation.getSize(),
+    g.drawString("Slide " + (1 + presentationController.getSlideNumber()) + " of " + presentation.getSize(),
         XPOS, YPOS);
 
     Rectangle area = new Rectangle(0, YPOS, getWidth(), (getHeight() - YPOS));

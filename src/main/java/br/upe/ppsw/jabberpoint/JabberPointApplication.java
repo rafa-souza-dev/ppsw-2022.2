@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import br.upe.ppsw.jabberpoint.controllers.DemoPresentationAccessor;
+import br.upe.ppsw.jabberpoint.controllers.PresentationController;
 import br.upe.ppsw.jabberpoint.controllers.XMLAccessor;
 import br.upe.ppsw.jabberpoint.models.Presentation;
 import br.upe.ppsw.jabberpoint.views.SlideViewerFrame;
@@ -33,6 +34,10 @@ public class JabberPointApplication implements CommandLineRunner {
 
     Presentation presentation = new Presentation();
 
+    PresentationController presentationController = PresentationController.getInstance();
+
+    presentationController.setPresentation(presentation);
+
     new SlideViewerFrame(JABVERSION, presentation);
 
     try {
@@ -42,7 +47,7 @@ public class JabberPointApplication implements CommandLineRunner {
         new XMLAccessor().loadFile(presentation, args[0]);
       }
 
-      presentation.setSlideNumber(0);
+      presentationController.setSlideNumber(0);
 
     } catch (IOException ex) {
       JOptionPane.showMessageDialog(null, IOERR + ex, JABERR, JOptionPane.ERROR_MESSAGE);

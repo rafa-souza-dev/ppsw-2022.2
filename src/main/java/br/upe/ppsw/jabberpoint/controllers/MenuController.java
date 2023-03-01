@@ -42,6 +42,8 @@ public class MenuController extends MenuBar {
   protected static final String SAVEERR = "Erro ao salvar";
 
   public MenuController(Frame frame, Presentation pres) {
+    PresentationController presentationController = PresentationController.getInstance();
+
     parent = frame;
     presentation = pres;
 
@@ -52,12 +54,12 @@ public class MenuController extends MenuBar {
 
     menuItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent actionEvent) {
-        presentation.clear();
+        presentationController.clear();
 
         XMLAccessor xmlAccessor = new XMLAccessor();
         try {
           xmlAccessor.loadFile(presentation, ResourceUtils.getFile(TESTFILE).getAbsolutePath());
-          presentation.setSlideNumber(0);
+          presentationController.setSlideNumber(0);
         } catch (IOException exc) {
           JOptionPane.showMessageDialog(parent, IOEX + exc, LOADERR, JOptionPane.ERROR_MESSAGE);
         }
@@ -70,7 +72,7 @@ public class MenuController extends MenuBar {
 
     menuItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent actionEvent) {
-        presentation.clear();
+        presentationController.clear();
         parent.repaint();
       }
     });
@@ -105,7 +107,7 @@ public class MenuController extends MenuBar {
 
     menuItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent actionEvent) {
-        presentation.nextSlide();
+        presentationController.nextSlide();
       }
     });
 
@@ -113,7 +115,7 @@ public class MenuController extends MenuBar {
 
     menuItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent actionEvent) {
-        presentation.prevSlide();
+        presentationController.prevSlide();
       }
     });
 
@@ -123,7 +125,7 @@ public class MenuController extends MenuBar {
       public void actionPerformed(ActionEvent actionEvent) {
         String pageNumberStr = JOptionPane.showInputDialog((Object) PAGENR);
         int pageNumber = Integer.parseInt(pageNumberStr);
-        presentation.setSlideNumber(pageNumber - 1);
+        presentationController.setSlideNumber(pageNumber - 1);
       }
     });
 

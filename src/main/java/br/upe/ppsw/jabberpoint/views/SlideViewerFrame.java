@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 
 import br.upe.ppsw.jabberpoint.controllers.KeyController;
 import br.upe.ppsw.jabberpoint.controllers.MenuController;
+import br.upe.ppsw.jabberpoint.controllers.PresentationController;
 import br.upe.ppsw.jabberpoint.models.Presentation;
 
 public class SlideViewerFrame extends JFrame {
@@ -22,7 +23,9 @@ public class SlideViewerFrame extends JFrame {
     super(title);
 
     SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presentation, this);
-    presentation.setShowView(slideViewerComponent);
+    PresentationController presentationController = PresentationController.getInstance();
+
+    presentationController.setSlideViewerComponent(slideViewerComponent);
 
     setupWindow(slideViewerComponent, presentation);
   }
@@ -37,7 +40,7 @@ public class SlideViewerFrame extends JFrame {
     });
 
     getContentPane().add(slideViewerComponent);
-    addKeyListener(new KeyController(presentation));
+    addKeyListener(new KeyController());
     setMenuBar(new MenuController(this, presentation));
     setSize(new Dimension(WIDTH, HEIGHT));
 
