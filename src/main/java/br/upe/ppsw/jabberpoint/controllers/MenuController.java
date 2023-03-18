@@ -13,7 +13,7 @@ import org.springframework.util.ResourceUtils;
 
 import br.upe.ppsw.jabberpoint.models.Presentation;
 import br.upe.ppsw.jabberpoint.use_cases.models.presentation.XMLAccessor;
-import br.upe.ppsw.jabberpoint.use_cases.views.AboutBox;
+import br.upe.ppsw.jabberpoint.use_cases.views.DrawAboutBoxDialog;
 
 public class MenuController extends MenuBar {
 
@@ -137,7 +137,7 @@ public class MenuController extends MenuBar {
 
     menuItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent actionEvent) {
-        AboutBox.show(parent);
+        DrawAboutBoxDialog.execute(parent);
       }
     });
 
