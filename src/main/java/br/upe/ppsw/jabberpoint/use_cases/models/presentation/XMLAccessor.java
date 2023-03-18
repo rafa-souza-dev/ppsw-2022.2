@@ -1,4 +1,4 @@
-package br.upe.ppsw.jabberpoint.controllers;
+package br.upe.ppsw.jabberpoint.use_cases.models.presentation;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -14,8 +14,6 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import br.upe.ppsw.jabberpoint.interfaces.IBasicAcessor;
-import br.upe.ppsw.jabberpoint.interfaces.ISaveAcessor;
 import br.upe.ppsw.jabberpoint.models.BitmapItem;
 import br.upe.ppsw.jabberpoint.models.Presentation;
 import br.upe.ppsw.jabberpoint.models.Slide;

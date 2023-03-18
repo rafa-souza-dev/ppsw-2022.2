@@ -1,9 +1,8 @@
-package br.upe.ppsw.jabberpoint.controllers;
+package br.upe.ppsw.jabberpoint.use_cases.models.presentation;
 
 import java.io.FileNotFoundException;
 import org.springframework.util.ResourceUtils;
 
-import br.upe.ppsw.jabberpoint.interfaces.IBasicAcessor;
 import br.upe.ppsw.jabberpoint.models.BitmapItem;
 import br.upe.ppsw.jabberpoint.models.Presentation;
 import br.upe.ppsw.jabberpoint.models.Slide;
