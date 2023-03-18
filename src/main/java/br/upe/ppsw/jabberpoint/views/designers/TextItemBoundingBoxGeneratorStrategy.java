@@ -1,34 +1,23 @@
 package br.upe.ppsw.jabberpoint.views.designers;
 
-import java.awt.Rectangle;
 import java.awt.Graphics;
-import java.awt.image.ImageObserver;
+import java.awt.Rectangle;
 import java.awt.font.TextLayout;
 import java.awt.geom.Rectangle2D;
+import java.awt.image.ImageObserver;
 
-import br.upe.ppsw.jabberpoint.models.BitmapItem;
 import br.upe.ppsw.jabberpoint.models.SlideItem;
 import br.upe.ppsw.jabberpoint.models.TextItem;
 
 import java.util.List;
 import java.util.Iterator;
 
-public class BoundingBoxGenerator {
-    private SlideItem slideItem;
-
-    public BoundingBoxGenerator(SlideItem slideItem) {
-        this.slideItem = slideItem;
-    }
-
-    public Rectangle handle(Graphics g, ImageObserver observer, float scale, ComponentsStyler style) {
-        if (slideItem instanceof BitmapItem) {
-            return new Rectangle((int) (style.indent * scale), 0,
-            (int) (((BitmapItem) this.slideItem).getBufferedImage().getWidth(observer) * scale),
-            ((int) (style.leading * scale)) + (int) (((BitmapItem) this.slideItem).getBufferedImage().getHeight(observer) * scale));
-        }
-
-        if (slideItem instanceof TextItem) {
-            TextItemLayoutsGenerator textItemLayoutsGenerator = new TextItemLayoutsGenerator((TextItem) slideItem);
+public class TextItemBoundingBoxGeneratorStrategy implements IBoundingBoxGeneratorStrategy {
+    public Rectangle handle(
+        SlideItem slideItem, Graphics g, ImageObserver observer, 
+        float scale, ComponentsStyler style
+    ) {
+        TextItemLayoutsGenerator textItemLayoutsGenerator = new TextItemLayoutsGenerator((TextItem) slideItem);
             List<TextLayout> layouts = textItemLayoutsGenerator.handle(g, style, scale);
 
             int xsize = 0, ysize = (int) (style.leading * scale);
@@ -50,12 +39,5 @@ public class BoundingBoxGenerator {
             }
 
             return new Rectangle((int) (style.indent * scale), 0, xsize, ysize);
-        }
-
-        return new Rectangle();
-    }
-
-    public void setSlideItem(SlideItem slideItem) {
-        this.slideItem = slideItem;
     }
 }

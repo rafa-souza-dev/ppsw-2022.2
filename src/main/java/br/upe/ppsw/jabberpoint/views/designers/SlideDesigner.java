@@ -23,29 +23,28 @@ public class SlideDesigner {
     
         SlideItem slideItem = this.slide.getTitle();
         ISlideItemDesignerStrategy slideItemDesigner = null;
-        BoundingBoxGenerator boundingBoxGenerator = new BoundingBoxGenerator(slideItem);
+        IBoundingBoxGeneratorStrategy boundingBoxGenerator = null;
         ComponentsStyler style = ComponentsStyler.getStyle(slideItem.getLevel());
 
         new TextItemDesignerStrategy().draw(slideItem, area.x, y, scale, g, style, view);
-    
-        y += boundingBoxGenerator.handle(g, view, scale, style).height;
-    
+        y += new TextItemBoundingBoxGeneratorStrategy().handle(slideItem, g, view, scale, style).height;
+        
         for (int number = 0; number < this.slide.getSize(); number++) {
           slideItem = (SlideItem) this.slide.getSlideItems().elementAt(number);
 
           if (slideItem instanceof TextItem) {
             slideItemDesigner = new TextItemDesignerStrategy();
+            boundingBoxGenerator = new TextItemBoundingBoxGeneratorStrategy();
           } else if (slideItem instanceof BitmapItem) {
             slideItemDesigner = new IBitmapItemDesignerStrategy();
+            boundingBoxGenerator = new BitmapBoundBoxGeneratorStrategy();
           }
-
-          boundingBoxGenerator.setSlideItem(slideItem);
 
           style = ComponentsStyler.getStyle(slideItem.getLevel());
 
           slideItemDesigner.draw(slideItem, area.x, y, scale, g, style, view);
     
-          y += boundingBoxGenerator.handle(g, view, scale, style).height;
+          y += boundingBoxGenerator.handle(slideItem, g, view, scale, style).height;
         }
     }
 
