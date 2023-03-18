@@ -13,7 +13,7 @@ import br.upe.ppsw.jabberpoint.models.SlideItem;
 import br.upe.ppsw.jabberpoint.models.TextItem;
 
 public class TextItemDesignerStrategy implements ISlideItemDesignerStrategy {
-    public void draw(
+    public void execute(
         SlideItem slideItem, int x, int y, float scale, 
         Graphics g, ComponentsStyler style,
         ImageObserver observer
