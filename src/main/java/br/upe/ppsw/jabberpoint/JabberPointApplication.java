@@ -41,7 +41,7 @@ public class JabberPointApplication implements CommandLineRunner {
     new SlideViewerFrame(JABVERSION, presentation);
 
     try {
-      if (args.length == 0) {
+      if (args.length <= 1) {
         new DemoPresentationAccessor().loadFile(presentation, "");
       } else {
         new XMLAccessor().loadFile(presentation, args[0]);
