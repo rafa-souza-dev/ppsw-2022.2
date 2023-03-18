@@ -4,8 +4,10 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
 
+import br.upe.ppsw.jabberpoint.models.BitmapItem;
 import br.upe.ppsw.jabberpoint.models.Slide;
 import br.upe.ppsw.jabberpoint.models.SlideItem;
+import br.upe.ppsw.jabberpoint.models.TextItem;
 
 public class SlideDesigner {
     private Slide slide;
@@ -20,25 +22,28 @@ public class SlideDesigner {
         int y = area.y;
     
         SlideItem slideItem = this.slide.getTitle();
-
-        SlideItemDesigner slideItemDesigner = new SlideItemDesigner(slideItem);
+        ISlideItemDesignerStrategy slideItemDesigner = null;
         BoundingBoxGenerator boundingBoxGenerator = new BoundingBoxGenerator(slideItem);
-
         ComponentsStyler style = ComponentsStyler.getStyle(slideItem.getLevel());
 
-        slideItemDesigner.execute(area.x, y, scale, g, style, view);
+        new TextItemDesignerStrategy().execute(slideItem, area.x, y, scale, g, style, view);
     
         y += boundingBoxGenerator.handle(g, view, scale, style).height;
     
         for (int number = 0; number < this.slide.getSize(); number++) {
           slideItem = (SlideItem) this.slide.getSlideItems().elementAt(number);
-            
-          slideItemDesigner.setSlideItem(slideItem);
+
+          if (slideItem instanceof TextItem) {
+            slideItemDesigner = new TextItemDesignerStrategy();
+          } else if (slideItem instanceof BitmapItem) {
+            slideItemDesigner = new IBitmapItemDesignerStrategy();
+          }
+
           boundingBoxGenerator.setSlideItem(slideItem);
 
           style = ComponentsStyler.getStyle(slideItem.getLevel());
 
-          slideItemDesigner.execute(area.x, y, scale, g, style, view);
+          slideItemDesigner.execute(slideItem, area.x, y, scale, g, style, view);
     
           y += boundingBoxGenerator.handle(g, view, scale, style).height;
         }
