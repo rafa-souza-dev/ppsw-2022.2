@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import org.springframework.util.ResourceUtils;
 
 import br.upe.ppsw.jabberpoint.models.Presentation;
-import br.upe.ppsw.jabberpoint.use_cases.models.presentation.XMLAccessor;
+import br.upe.ppsw.jabberpoint.use_cases.models.presentation.AcessXMLPresentation;
 import br.upe.ppsw.jabberpoint.use_cases.views.DrawAboutBoxDialog;
 
 public class MenuController extends MenuBar {
@@ -57,7 +57,7 @@ public class MenuController extends MenuBar {
       public void actionPerformed(ActionEvent actionEvent) {
         presentationController.clear();
 
-        XMLAccessor xmlAccessor = new XMLAccessor();
+        AcessXMLPresentation xmlAccessor = new AcessXMLPresentation();
         try {
           xmlAccessor.loadFile(presentation, ResourceUtils.getFile(TESTFILE).getAbsolutePath());
           presentationController.setSlideNumber(0);
@@ -82,7 +82,7 @@ public class MenuController extends MenuBar {
 
     menuItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        XMLAccessor xmlAccessor = new XMLAccessor();
+        AcessXMLPresentation xmlAccessor = new AcessXMLPresentation();
         try {
           xmlAccessor.saveFile(presentation, SAVEFILE);
         } catch (IOException exc) {

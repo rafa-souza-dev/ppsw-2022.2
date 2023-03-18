@@ -6,8 +6,9 @@ import org.springframework.util.ResourceUtils;
 import br.upe.ppsw.jabberpoint.models.BitmapItem;
 import br.upe.ppsw.jabberpoint.models.Presentation;
 import br.upe.ppsw.jabberpoint.models.Slide;
+import br.upe.ppsw.jabberpoint.use_cases.models.presentation.interfaces.IBasicAcessor;
 
-public class DemoPresentationAccessor implements IBasicAcessor {
+public class AcessDemoPresentation implements IBasicAcessor {
 
   public void loadFile(Presentation presentation, String unusedFilename)
       throws FileNotFoundException {
