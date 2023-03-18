@@ -7,7 +7,7 @@ import br.upe.ppsw.jabberpoint.models.SlideItem;
 import br.upe.ppsw.jabberpoint.models.BitmapItem;
 
 public class IBitmapItemDesignerStrategy implements ISlideItemDesignerStrategy {
-    public void execute(
+    public void draw(
         SlideItem slideItem, int x, int y, float scale, 
         Graphics g, ComponentsStyler style,
         ImageObserver observer
