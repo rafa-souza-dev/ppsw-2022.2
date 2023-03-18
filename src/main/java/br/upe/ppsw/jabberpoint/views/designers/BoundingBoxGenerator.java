@@ -1,4 +1,4 @@
-package br.upe.ppsw.jabberpoint.views;
+package br.upe.ppsw.jabberpoint.views.designers;
 
 import java.awt.Rectangle;
 import java.awt.Graphics;

@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import br.upe.ppsw.jabberpoint.controllers.PresentationController;
 import br.upe.ppsw.jabberpoint.models.Presentation;
 import br.upe.ppsw.jabberpoint.models.Slide;
+import br.upe.ppsw.jabberpoint.views.designers.SlideDesigner;
 
 public class SlideViewerComponent extends JComponent {
   private static final long serialVersionUID = 227L;

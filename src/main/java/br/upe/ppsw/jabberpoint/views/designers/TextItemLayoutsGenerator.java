@@ -1,4 +1,4 @@
-package br.upe.ppsw.jabberpoint.views;
+package br.upe.ppsw.jabberpoint.views.designers;
 
 import br.upe.ppsw.jabberpoint.models.Slide;
 import br.upe.ppsw.jabberpoint.models.TextItem;

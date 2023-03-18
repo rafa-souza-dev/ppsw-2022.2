@@ -12,7 +12,7 @@ import br.upe.ppsw.jabberpoint.controllers.PresentationController;
 import br.upe.ppsw.jabberpoint.controllers.XMLAccessor;
 import br.upe.ppsw.jabberpoint.models.Presentation;
 import br.upe.ppsw.jabberpoint.views.SlideViewerFrame;
-import br.upe.ppsw.jabberpoint.views.ComponentsStyler;
+import br.upe.ppsw.jabberpoint.views.designers.ComponentsStyler;
 
 @SpringBootApplication
 public class JabberPointApplication implements CommandLineRunner {
