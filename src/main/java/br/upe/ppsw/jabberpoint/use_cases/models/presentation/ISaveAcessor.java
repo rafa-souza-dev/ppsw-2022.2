@@ -1,4 +1,4 @@
-package br.upe.ppsw.jabberpoint.use_cases.models.presentation.interfaces;
+package br.upe.ppsw.jabberpoint.use_cases.models.presentation;
 
 import java.io.IOException;
 

@@ -19,8 +19,6 @@ import br.upe.ppsw.jabberpoint.models.Presentation;
 import br.upe.ppsw.jabberpoint.models.Slide;
 import br.upe.ppsw.jabberpoint.models.SlideItem;
 import br.upe.ppsw.jabberpoint.models.TextItem;
-import br.upe.ppsw.jabberpoint.use_cases.models.presentation.interfaces.IBasicAcessor;
-import br.upe.ppsw.jabberpoint.use_cases.models.presentation.interfaces.ISaveAcessor;
 
 public class AcessXMLPresentation implements IBasicAcessor, ISaveAcessor {
 
