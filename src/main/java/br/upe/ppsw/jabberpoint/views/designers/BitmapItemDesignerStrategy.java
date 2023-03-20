@@ -6,7 +6,7 @@ import java.awt.image.ImageObserver;
 import br.upe.ppsw.jabberpoint.models.SlideItem;
 import br.upe.ppsw.jabberpoint.models.BitmapItem;
 
-public class IBitmapItemDesignerStrategy implements ISlideItemDesignerStrategy {
+public class BitmapItemDesignerStrategy implements ISlideItemDesignerStrategy {
     public void execute(
         SlideItem slideItem, int x, int y, float scale, 
         Graphics g, ComponentsStyler style,
