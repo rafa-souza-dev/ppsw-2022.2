@@ -12,6 +12,9 @@ import br.upe.ppsw.jabberpoint.views.designers.factories.MakeSlideItemDesignerSt
 public class SlideDesigner {
     private Slide slide;
 
+    public final static int WIDTH = 1200;
+    public final static int HEIGHT = 800;
+
     public SlideDesigner(Slide slide) {
         this.slide = slide;
     }
@@ -44,7 +47,7 @@ public class SlideDesigner {
     }
 
     private float getScale(Rectangle area) {
-        return Math.min(((float) area.width) / ((float) Slide.WIDTH),
-            ((float) area.height) / ((float) Slide.HEIGHT));
+        return Math.min(((float) area.width) / ((float) WIDTH),
+            ((float) area.height) / ((float) HEIGHT));
     }
 }

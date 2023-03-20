@@ -1,6 +1,5 @@
 package br.upe.ppsw.jabberpoint.views.designers;
 
-import br.upe.ppsw.jabberpoint.models.Slide;
 import br.upe.ppsw.jabberpoint.models.TextItem;
 
 import java.awt.font.TextLayout;
@@ -30,7 +29,7 @@ public class TextItemLayoutsGenerator {
         FontRenderContext frc = g2d.getFontRenderContext();
         LineBreakMeasurer measurer = new LineBreakMeasurer(attrStr.getIterator(), frc);
 
-        float wrappingWidth = (Slide.WIDTH - s.indent) * scale;
+        float wrappingWidth = (SlideDesigner.WIDTH - s.indent) * scale;
 
         while (measurer.getPosition() < this.textItem.getText().length()) {
         TextLayout layout = measurer.nextLayout(wrappingWidth);

@@ -37,7 +37,7 @@ public class SlideViewerComponent extends JComponent {
   }
 
   public Dimension getPreferredSize() {
-    return new Dimension(Slide.WIDTH, Slide.HEIGHT);
+    return new Dimension(SlideDesigner.WIDTH, SlideDesigner.HEIGHT);
   }
 
   public void update(Presentation presentation, Slide data) {
