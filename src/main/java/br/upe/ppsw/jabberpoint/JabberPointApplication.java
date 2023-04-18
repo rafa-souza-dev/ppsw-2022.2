@@ -9,8 +9,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import br.upe.ppsw.jabberpoint.controllers.PresentationController;
 import br.upe.ppsw.jabberpoint.models.Presentation;
-import br.upe.ppsw.jabberpoint.use_cases.models.presentation.AcessDemoPresentation;
-import br.upe.ppsw.jabberpoint.use_cases.models.presentation.AcessXMLPresentation;
+import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.AcessDemoPresentation;
+import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.AcessXMLPresentation;
 import br.upe.ppsw.jabberpoint.views.SlideViewerFrame;
 import br.upe.ppsw.jabberpoint.views.designers.ComponentsStyler;
 

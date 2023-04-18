@@ -12,8 +12,8 @@ import javax.swing.JOptionPane;
 import org.springframework.util.ResourceUtils;
 
 import br.upe.ppsw.jabberpoint.models.Presentation;
-import br.upe.ppsw.jabberpoint.use_cases.models.presentation.AcessXMLPresentation;
-import br.upe.ppsw.jabberpoint.use_cases.views.DrawAboutBoxDialog;
+import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.AcessXMLPresentation;
+import br.upe.ppsw.jabberpoint.views.DrawAboutBoxDialog;
 
 public class MenuController extends MenuBar {
 

@@ -1,4 +1,4 @@
-package br.upe.ppsw.jabberpoint.use_cases.views;
+package br.upe.ppsw.jabberpoint.views;
 
 import java.awt.Frame;
 import javax.swing.JOptionPane;
