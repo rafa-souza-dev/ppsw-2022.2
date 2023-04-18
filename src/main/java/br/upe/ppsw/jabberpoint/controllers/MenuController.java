@@ -7,12 +7,16 @@ import java.awt.MenuItem;
 import java.awt.MenuShortcut;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
+
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import org.springframework.util.ResourceUtils;
 
 import br.upe.ppsw.jabberpoint.models.Presentation;
 import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.AcessXMLPresentation;
+import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.IBasicAcessor;
+import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.MakeAccessPresentation;
 import br.upe.ppsw.jabberpoint.views.DrawAboutBoxDialog;
 
 public class MenuController extends MenuBar {
@@ -55,17 +59,39 @@ public class MenuController extends MenuBar {
 
     menuItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent actionEvent) {
-        presentationController.clear();
+        JFileChooser fileChooser = new JFileChooser();
 
-        AcessXMLPresentation xmlAccessor = new AcessXMLPresentation();
-        try {
-          xmlAccessor.loadFile(presentation, ResourceUtils.getFile(TESTFILE).getAbsolutePath());
-          presentationController.setSlideNumber(0);
-        } catch (IOException exc) {
-          JOptionPane.showMessageDialog(parent, IOEX + exc, LOADERR, JOptionPane.ERROR_MESSAGE);
+        fileChooser.showOpenDialog(null);
+
+        File selectedFile = fileChooser.getSelectedFile();
+
+        if (selectedFile != null) {
+          String filename = selectedFile.getName();
+          String filePath = selectedFile.getAbsolutePath();
+          String fileType = "";
+
+          int dotIndex = filename.lastIndexOf('.');
+
+          if (dotIndex > 0) {
+            fileType = filename.substring(dotIndex + 1);
+          }
+          
+          presentationController.clear();
+
+          try {
+            MakeAccessPresentation makeAccessPresentation = new MakeAccessPresentation(fileType);
+            IBasicAcessor acessor = makeAccessPresentation.handle();
+
+            acessor.loadFile(presentation, filePath);
+            presentationController.setSlideNumber(0);
+          } catch (IOException exc) {
+            JOptionPane.showMessageDialog(parent, IOEX + exc, LOADERR, JOptionPane.ERROR_MESSAGE);
+          } catch (NullPointerException exc) {
+            JOptionPane.showMessageDialog(parent, "É preciso selecionar um arquivo JSON ou XML.", "Tipo de arquivo inválido.", JOptionPane.ERROR_MESSAGE);
+          }
+
+          parent.repaint();
         }
-
-        parent.repaint();
       }
     });
 
