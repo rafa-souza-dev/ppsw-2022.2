@@ -19,7 +19,7 @@ public class BitmapItem extends SlideItem {
     imageName = name;
 
     try {
-      bufferedImage = ImageIO.read(ResourceUtils.getFile(imageName).getAbsoluteFile());
+      bufferedImage = ImageIO.read(ResourceUtils.getFile("classpath:" + imageName).getAbsoluteFile());
     } catch (IOException e) {
       System.err.println(FILE + imageName + NOTFOUND);
     }

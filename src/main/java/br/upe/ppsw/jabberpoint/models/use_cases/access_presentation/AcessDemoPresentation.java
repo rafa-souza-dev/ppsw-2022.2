@@ -1,7 +1,6 @@
 package br.upe.ppsw.jabberpoint.models.use_cases.access_presentation;
 
 import java.io.FileNotFoundException;
-import org.springframework.util.ResourceUtils;
 
 import br.upe.ppsw.jabberpoint.models.BitmapItem;
 import br.upe.ppsw.jabberpoint.models.Presentation;
@@ -28,6 +27,7 @@ public class AcessDemoPresentation implements IBasicAcessor {
     slide.append(3, "Próximo slide: PgDn ou Enter");
     slide.append(3, "Slide Anterior: PgUp ou up-arrow");
     slide.append(3, "Parar: q ou Q");
+
     presentation.append(slide);
 
     slide = new Slide();
@@ -39,6 +39,7 @@ public class AcessDemoPresentation implements IBasicAcessor {
     slide.append(2, "Nível 2 tem Estilo número 2");
     slide.append(3, "Este é um ítem de Nível 3");
     slide.append(4, "E este é um ítem de Nível 4");
+
     presentation.append(slide);
 
     slide = new Slide();
@@ -48,7 +49,9 @@ public class AcessDemoPresentation implements IBasicAcessor {
     slide.append(1, " ");
     slide.append(1, "Fim da Apresentação");
     slide.append(
-        new BitmapItem(1, ResourceUtils.getFile("classpath:JabberPoint.jpg").getAbsolutePath()));
+      new BitmapItem(1, "JabberPoint.jpg")
+    );
+
     presentation.append(slide);
   }
 
