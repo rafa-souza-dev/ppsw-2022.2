@@ -13,7 +13,7 @@ public class BitmapItem extends SlideItem {
   protected static final String FILE = "Arquivo ";
   protected static final String NOTFOUND = " não encontrado";
 
-  public BitmapItem(int level, String name) {
+  public BitmapItem(long level, String name) {
     super(level);
 
     imageName = name;

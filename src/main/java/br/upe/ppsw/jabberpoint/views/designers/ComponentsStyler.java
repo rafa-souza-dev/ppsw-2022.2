@@ -23,12 +23,12 @@ public class ComponentsStyler {
     styles[4] = new ComponentsStyler(90, Color.black, 24, 10); // nível 4
   }
 
-  public static ComponentsStyler getStyle(int level) {
+  public static ComponentsStyler getStyle(long level) {
     if (level >= styles.length) {
       level = styles.length - 1;
     }
 
-    return styles[level];
+    return styles[(int) level];
   }
 
   public ComponentsStyler(int indent, Color color, int points, int leading) {

@@ -6,7 +6,7 @@ public class TextItem extends SlideItem {
 
   private static final String EMPTYTEXT = "No Text Given";
 
-  public TextItem(int level, String string) {
+  public TextItem(long level, String string) {
     super(level);
     text = string;
   }

@@ -2,9 +2,9 @@ package br.upe.ppsw.jabberpoint.models;
 
 public class SlideItem {
 
-  private int level = 0;
+  private Long level = (long) 0;
 
-  public SlideItem(int lev) {
+  public SlideItem(long lev) {
     level = lev;
   }
 
@@ -12,7 +12,7 @@ public class SlideItem {
     this(0);
   }
 
-  public int getLevel() {
+  public long getLevel() {
     return level;
   }
 
