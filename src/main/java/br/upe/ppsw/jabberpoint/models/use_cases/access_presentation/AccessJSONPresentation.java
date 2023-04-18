@@ -53,11 +53,12 @@ public class AccessJSONPresentation implements IBasicAcessor {
                     Long level = (Long) jsonShowList.get("level");
 
                     String text = (String) jsonShowList.get("text");
+                    String imageName = (String) jsonShowList.get("imageName");
 
                     if (text != null) {
                         slideItem = new TextItem(level, text);
                     } else {
-                        slideItem = new BitmapItem();
+                        slideItem = new BitmapItem(level, imageName);
                     }
 
                     slide.append(slideItem);
