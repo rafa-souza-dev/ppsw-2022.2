@@ -18,6 +18,10 @@ public class MakeAccessPresentation {
             acessor = new AcessXMLPresentation();
         }
 
+        if (type.equals("csv")) {
+            acessor = new AccessCSVPresentation();
+        }
+
         return acessor;
     }
 }
