@@ -14,8 +14,8 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 import br.upe.ppsw.jabberpoint.models.Presentation;
-import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.AcessXMLPresentation;
 import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.IBasicAcessor;
+import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.ISaveAcessor;
 import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.MakeAccessPresentation;
 import br.upe.ppsw.jabberpoint.views.DrawAboutBoxDialog;
 
@@ -108,11 +108,28 @@ public class MenuController extends MenuBar {
 
     menuItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        AcessXMLPresentation xmlAccessor = new AcessXMLPresentation();
+        Object[] options = { "json", "xml" };
+
+        Object selectedOption = JOptionPane.showInputDialog(null, "Escolha o tipo do Arquivo", "Selecionar Opção", JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Selecione uma pasta");
+        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        fileChooser.showOpenDialog(null);
+
+        String selectedPath = fileChooser.getSelectedFile().getAbsolutePath();
+
+        String fileName = JOptionPane.showInputDialog("Digite o nome do arquivo:", "Exemplo: arquivo_de_teste");
+
+        MakeAccessPresentation makeAccessPresentation = new MakeAccessPresentation((String) selectedOption);
+        IBasicAcessor acessor = makeAccessPresentation.handle();
+
+        String filePath = selectedPath + "/" + fileName + "." + selectedOption;
+
         try {
-          xmlAccessor.saveFile(presentation, SAVEFILE);
-        } catch (IOException exc) {
-          JOptionPane.showMessageDialog(parent, IOEX + exc, SAVEERR, JOptionPane.ERROR_MESSAGE);
+          ((ISaveAcessor) acessor).saveFile(presentation, filePath);
+        } catch (IOException e1) {
+          e1.printStackTrace();
         }
       }
     });
