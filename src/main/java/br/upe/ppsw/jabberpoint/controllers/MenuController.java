@@ -108,7 +108,7 @@ public class MenuController extends MenuBar {
 
     menuItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        Object[] options = { "json", "xml" };
+        Object[] options = { "json", "xml", "csv" };
 
         Object selectedOption = JOptionPane.showInputDialog(null, "Escolha o tipo do Arquivo", "Selecionar Opção", JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
 
