@@ -115,7 +115,6 @@ public class AcessXMLPresentation implements IBasicAcessor, ISaveAcessor {
     PrintWriter out = new PrintWriter(new FileWriter(filename));
 
     out.println("<?xml version=\"1.0\"?>");
-    out.println("<!DOCTYPE presentation SYSTEM \"jabberpoint.dtd\">");
     out.println("<presentation>");
 
     out.print("<showtitle>");
