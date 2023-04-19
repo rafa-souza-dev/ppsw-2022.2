@@ -1,0 +1,31 @@
+{
+    "title": "Apresentação para testes :)",
+    "slides": [
+        {
+            "title": "Titulo do Slide",
+            "items": [
+                {
+                    "level": 2,
+                    "text": "Texto de teste"
+                },
+                {
+                    "level": 1,
+                    "imageName": "upe_garanhuns.jpg"
+                }
+            ]
+        },
+        {
+            "title": "Titulo do Segundo Slide",
+            "items": [
+                {
+                    "level": 3,
+                    "text": "Texto do segundo slide"
+                },
+                {
+                    "level": 1,
+                    "imageName": "upe_garanhuns.jpg"
+                }
+            ]
+        }
+    ]
+}
