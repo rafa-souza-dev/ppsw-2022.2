@@ -14,9 +14,10 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 import br.upe.ppsw.jabberpoint.models.Presentation;
-import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.IBasicAcessor;
-import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.ISaveAcessor;
-import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.MakeAccessPresentation;
+import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.factories.MakeLoadPresentationUseCase;
+import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.factories.MakeSavePresentationUseCase;
+import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.interfaces.ILoadAcessor;
+import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.interfaces.ISaveAcessor;
 import br.upe.ppsw.jabberpoint.views.DrawAboutBoxDialog;
 
 public class MenuController extends MenuBar {
@@ -31,7 +32,7 @@ public class MenuController extends MenuBar {
   protected static final String EXIT = "Sair";
   protected static final String GOTO = "Pular para";
   protected static final String HELP = "Ajuda";
-  protected static final String NEW = "Novo";
+  // protected static final String NEW = "Novo";
   protected static final String NEXT = "Próximo";
   protected static final String OPEN = "Abrir";
   protected static final String PAGENR = "Npumero do Slide?";
@@ -79,10 +80,10 @@ public class MenuController extends MenuBar {
           presentationController.clear();
 
           try {
-            MakeAccessPresentation makeAccessPresentation = new MakeAccessPresentation(fileType);
-            IBasicAcessor acessor = makeAccessPresentation.handle();
+            MakeLoadPresentationUseCase makeLoadPresentationUseCase = new MakeLoadPresentationUseCase(fileType);
+            ILoadAcessor loadAcessor = makeLoadPresentationUseCase.handle();
 
-            acessor.loadFile(presentation, filePath);
+            loadAcessor.execute(presentation, filePath);
             presentationController.setSlideNumber(0);
           } catch (IOException exc) {
             JOptionPane.showMessageDialog(parent, IOEX + exc, LOADERR, JOptionPane.ERROR_MESSAGE);
@@ -95,14 +96,14 @@ public class MenuController extends MenuBar {
       }
     });
 
-    fileMenu.add(menuItem = mkMenuItem(NEW));
+    // fileMenu.add(menuItem = mkMenuItem(NEW));
 
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        presentationController.clear();
-        parent.repaint();
-      }
-    });
+    // menuItem.addActionListener(new ActionListener() {
+    //   public void actionPerformed(ActionEvent actionEvent) {
+    //     presentationController.clear();
+    //     parent.repaint();
+    //   }
+    // });
 
     fileMenu.add(menuItem = mkMenuItem(SAVE));
 
@@ -121,13 +122,13 @@ public class MenuController extends MenuBar {
 
         String fileName = JOptionPane.showInputDialog("Digite o nome do arquivo:", "Exemplo: arquivo_de_teste");
 
-        MakeAccessPresentation makeAccessPresentation = new MakeAccessPresentation((String) selectedOption);
-        IBasicAcessor acessor = makeAccessPresentation.handle();
-
         String filePath = selectedPath + "/" + fileName + "." + selectedOption;
 
         try {
-          ((ISaveAcessor) acessor).saveFile(presentation, filePath);
+          MakeSavePresentationUseCase makeSavePresentationUseCase = new MakeSavePresentationUseCase((String) selectedOption);
+          ISaveAcessor saveAcessor = makeSavePresentationUseCase.handle();
+
+          saveAcessor.execute(presentation, filePath);
         } catch (IOException e1) {
           e1.printStackTrace();
         }

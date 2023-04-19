@@ -9,8 +9,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import br.upe.ppsw.jabberpoint.controllers.PresentationController;
 import br.upe.ppsw.jabberpoint.models.Presentation;
-import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.AcessDemoPresentation;
-import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.AcessXMLPresentation;
+import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.LoadDemoPresentation;
+import br.upe.ppsw.jabberpoint.models.use_cases.access_presentation.LoadXMLPresentation;
 import br.upe.ppsw.jabberpoint.views.SlideViewerFrame;
 import br.upe.ppsw.jabberpoint.views.designers.ComponentsStyler;
 
@@ -42,9 +42,9 @@ public class JabberPointApplication implements CommandLineRunner {
 
     try {
       if (args.length <= 1) {
-        new AcessDemoPresentation().loadFile(presentation, "");
+        new LoadDemoPresentation().execute(presentation, "");
       } else {
-        new AcessXMLPresentation().loadFile(presentation, args[0]);
+        new LoadXMLPresentation().execute(presentation, args[0]);
       }
 
       presentationController.setSlideNumber(0);
